@@ -43,13 +43,13 @@ button{
 </head>
 <body>
     <h2>Agregar Producto:</h2>
-<form action="crear.php" method="POST">
+<form id="book-form">
   <label>NOMBRE</label>
-  <input type="text" name="nombre">
+  <input type="text" id="nombre">
   <label>PRECIO</label>
-  <input type="text" name="precio" >
+  <input type="text" id="precio" >
   <label>CANTIDAD</label>
-  <input type="text" name="cantidad" >
+  <input type="text" id="cantidad" >
   <input type="submit" />
 </form>
 
@@ -58,8 +58,64 @@ button{
   <tr>
     <th>Nombre</th>
     <th>Cantidad</th>
-    <th>Precio</th>
+    <th>PRECIO</th>
+    <th></th>
   </tr>
+  <tbody id="book-container">
+
+  </tbody>
 </table>
 </body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const bookContainer = document.querySelector('#book-container');
+    const bookURL = 'https://info.platosalacarta.com/lista.json';
+    fetch(bookURL)
+    .then( response => response.json() )
+    .then( data => 
+    data.forEach((value, i) => {
+
+  bookContainer.innerHTML += `
+  <tr>
+   <td>`+value['nombre']+`</td>
+   <td>`+value['precio']+`</td>
+    <td>`+value['precio']+`</td>
+    <td><a href="`+value['nombre']+`" >Eliminar</a></td>
+    </tr>`
+})
+    
+    
+    ) // end of book fetch
+
+})
+
+
+const bookForm = document.querySelector('#book-form')
+
+
+bookForm.addEventListener('submit', (e) => {
+     e.preventDefault()
+
+     const nombre = bookForm.querySelector('#nombre').value
+    const precio = bookForm.querySelector('#precio').value
+    const cantidad = bookForm.querySelector('#cantidad').value
+    console.log(nombre+precio+cantidad);
+    console.log(e.target);
+     const bookURL = 'https://info.platosalacarta.com/lista.json';
+     fetch(bookURL, {
+      method: 'POST',
+      body: JSON.stringify({
+        nombre: nombre,
+        cantidad: cantidad,
+        precio: precio
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+})
+
+
+
+</script>
 </html>
