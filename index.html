@@ -69,7 +69,7 @@ button{
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const bookContainer = document.querySelector('#book-container');
-    const bookURL = 'https://info.platosalacarta.com/lista.json';
+    const bookURL = 'https://aillanesg.github.io/bodega/data.json';
     fetch(bookURL)
     .then( response => response.json() )
     .then( data => 
@@ -101,7 +101,7 @@ bookForm.addEventListener('submit', (e) => {
     const cantidad = bookForm.querySelector('#cantidad').value
     console.log(nombre+precio+cantidad);
     console.log(e.target);
-     const bookURL = 'https://info.platosalacarta.com/lista.json';
+     const bookURL = 'https://aillanesg.github.io/bodega/data.json';
      fetch(bookURL, {
       method: 'POST',
       body: JSON.stringify({
