@@ -1,1 +1,9 @@
-
+{
+    "productos": [
+      {
+        "nombre": "Ayudin",
+        "cantidad": "1",
+        "precio": "5.0"
+      }
+    ]
+  }
