@@ -1,1 +1,65 @@
-<h2>Bienvenido</h2>
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+input[type=text] {
+  width: 100%;
+  padding: 15px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+button{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
+    <h2>Agregar Producto:</h2>
+<form action="carga.php" method="POST">
+  <label>NOMBRE</label>
+  <input type="text" name="nombre">
+  <label>PRECIO</label>
+  <input type="text" name="precio" >
+  <label>CANTIDAD</label>
+  <input type="text" name="cantidad" >
+  <input type="submit" />
+</form>
+
+<h2>LISTA DE PRECIOS:</h2>
+<table id="customers">
+  <tr>
+    <th>Nombre</th>
+    <th>Cantidad</th>
+    <th>Precio</th>
+  </tr>
+</table>
+</body>
+</html>
